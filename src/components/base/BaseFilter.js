@@ -3,11 +3,12 @@ import BaseCountry from "./BaseCountry";
 
 const BaseFilter = ({ showFilters, setShowFilters, darkMode }) => {
   return (
-    <div className="relative inline-block mt-6">
+    <div className="relative inline-block mt-6 z-20">
       <button
         onClick={() => setShowFilters(!showFilters)}
-        className={`flex items-center bg-white shadow-lg py-4 px-4 rounded-md font-semibold focus:outline-none focus:ring ${
-          darkMode ? "ring-teal-200" : "ring-teal-500"
+        // onFocus={() => setShowFilters(!showFilters)}
+        className={`flex items-center bg-white shadow-lg py-4 px-4 rounded-md font-semibold focus:outline-none focus:ring ring-teal-500 ${
+          darkMode ? "bg-gray-700 text-white" : ""
         }`}
       >
         Filter by Region
@@ -21,6 +22,8 @@ const BaseFilter = ({ showFilters, setShowFilters, darkMode }) => {
 
       <div
         className={`absolute origin-top-right w-40 right-0 bg-white shadow-lg transition-all duration-500 ease-out mt-2 rounded-md overflow-hidden ${
+          darkMode ? "bg-gray-700 text-white" : ""
+        } ${
           showFilters
             ? "scale-y-100 opacity-100 pointer-events-auto"
             : "scale-y-0 opacity-0 pointer-events-none"

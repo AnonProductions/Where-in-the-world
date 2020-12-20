@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         teal: colors.teal,
       },
+      gridTemplateColumns: {
+        "fill-40": "repeat(auto-fill, minmax(20rem, 1fr))",
+      },
     },
   },
   variants: {
