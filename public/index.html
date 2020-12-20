@@ -20,6 +20,35 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      (function () {
+        window.__onThemeChange = function () {};
+        function setTheme(newTheme) {
+          window.__theme = newTheme;
+          preferredTheme = newTheme;
+          document.body.className = newTheme;
+          if (newTheme === "dark") {
+            document.body.classList.add("bg-gray-800");
+          }
+          window.__onThemeChange(newTheme);
+        }
+        var preferredTheme;
+        try {
+          preferredTheme = localStorage.getItem("theme");
+        } catch (err) {}
+        window.__setPreferredTheme = function (newTheme) {
+          setTheme(newTheme);
+          try {
+            localStorage.setItem("theme", newTheme);
+          } catch (err) {}
+        };
+        var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        darkQuery.addListener(function (e) {
+          window.__setPreferredTheme(e.matches ? "dark" : "light");
+        });
+        setTheme(preferredTheme || (darkQuery.matches ? "dark" : "light"));
+      })();
+    </script>
     <div id="root"></div>
   </body>
 </html>

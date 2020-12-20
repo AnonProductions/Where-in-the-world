@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("darkMode") || false
+    document.body.classList.contains("dark") ? true : false
   );
   const [showFilters, setShowFilters] = useState(false);
 
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Router>
-      <div className={`${darkMode ? "bg-gray-800" : "bg-white"}`}>
+      <div className={`App ${darkMode ? "bg-gray-800" : "bg-white"}`}>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Switch>
           <Route path="/" exact>

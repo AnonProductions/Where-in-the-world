@@ -11,7 +11,7 @@ const CountryItem = ({ flag, name, population, region, capital, darkMode }) => {
   return (
     <button
       onClick={goToCountry}
-      className={`rounded-md shadow-lg mx-6 overflow-hidden mb-8 cursor-pointer transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl focus:outline-none focus:ring ring-teal-500 focus:-translate-y-2 focus:shadow-2xl ${
+      className={`rounded-md shadow-lg mx-6 overflow-hidden mb-8 cursor-pointer transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl focus:outline-none focus:ring ring-teal-500 focus:-translate-y-2 focus:shadow-2xl text-left ${
         darkMode ? "bg-gray-700 text-white" : "bg-white"
       }`}
     >
