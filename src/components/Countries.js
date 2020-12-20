@@ -7,6 +7,7 @@ import SkeletonCountryItem from "./skeleton/SkeletonCountryItem";
 const Countries = ({ darkMode }) => {
   const [{ countries, loading, error }, dispatch] = useStateValue();
 
+  // eslint-disable-next-line no-unused-vars
   const [index, setIndex] = useState(0);
   // const [CountriesToShow, setCountriesToShow] = useState(
   //   countries.slice(index, index + 12)
